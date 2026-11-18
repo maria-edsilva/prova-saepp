@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Diagrama Entidade-Relacionamento (DER)</title>
+<style>
+  body { font-family: Arial, sans-serif; margin: 30px; text-align: center; }
+  h1 { color: #0d6efd; }
+</style>
+</head>
+<body>
+  <h1>Diagrama Entidade-Relacionamento — Clínica Veterinária</h1>
+  <svg width="860" height="460" viewBox="0 0 860 460" xmlns="http://w3.org">
+    <rect x="20" y="30" width="230" height="165" rx="6" fill="#fff" stroke="#333" stroke-width="2"/>
+    <rect x="20" y="30" width="230" height="32" fill="#0d6efd"/>
+    <text x="135" y="51" fill="#fff" font-weight="bold" font-size="14" text-anchor="middle">Usuarios</text>
+    <text x="32" y="80" font-size="12">PK  Id : int</text>
+    <text x="32" y="102" font-size="12">     Nome : nvarchar(100)</text>
+    <text x="32" y="124" font-size="12">UQ  Email : nvarchar(150)</text>
+    <text x="32" y="146" font-size="12">     SenhaHash : nvarchar(max)</text>
+    <text x="32" y="168" font-size="12">     Perfil : nvarchar(30)</text>
+
+    <rect x="20" y="250" width="240" height="165" rx="6" fill="#fff" stroke="#333" stroke-width="2"/>
+    <rect x="20" y="250" width="240" height="32" fill="#198754"/>
+    <text x="140" y="271" fill="#fff" font-weight="bold" font-size="14" text-anchor="middle">Tutores</text>
+    <text x="32" y="300" font-size="12">PK  Id : int</text>
+    <text x="32" y="322" font-size="12">     Nome : nvarchar(120)</text>
+    <text x="32" y="344" font-size="12">     CpfCriptografado : nvarchar(max)</text>
+    <text x="32" y="366" font-size="12">     Telefone : nvarchar(20)</text>
+    <text x="32" y="388" font-size="12">     Email : nvarchar(150)</text>
+
+    <rect x="350" y="240" width="220" height="185" rx="6" fill="#fff" stroke="#333" stroke-width="2"/>
+    <rect x="350" y="240" width="220" height="32" fill="#198754"/>
+    <text x="460" y="261" fill="#fff" font-weight="bold" font-size="14" text-anchor="middle">Pets</text>
+    <text x="362" y="290" font-size="12">PK  Id : int</text>
+    <text x="362" y="312" font-size="12">     Nome : nvarchar(80)</text>
+    <text x="362" y="334" font-size="12">     Especie : nvarchar(50)</text>
+    <text x="362" y="356" font-size="12">     Raca : nvarchar(80) NULL</text>
+    <text x="362" y="378" font-size="12">     DataNascimento : datetime2 NULL</text>
+    <text x="362" y="400" font-size="12" fill="#b02a37">FK  TutorId : int</text>
+
+    <rect x="610" y="40" width="230" height="185" rx="6" fill="#fff" stroke="#333" stroke-width="2"/>
+    <rect x="610" y="40" width="230" height="32" fill="#6f42c1"/>
+    <text x="725" y="61" fill="#fff" font-weight="bold" font-size="14" text-anchor="middle">Agendamentos</text>
+    <text x="622" y="90" font-size="12">PK  Id : int</text>
+    <text x="622" y="112" font-size="12">     DataHora : datetime2</text>
+    <text x="622" y="134" font-size="12">     Motivo : nvarchar(200)</text>
+    <text x="622" y="156" font-size="12">     Status : nvarchar(30)</text>
+    <text x="622" y="178" font-size="12" fill="#b02a37">FK  TutorId : int</text>
+    <text x="622" y="200" font-size="12" fill="#b02a37">FK  PetId : int</text>
+
+    <line x1="260" y1="330" x2="350" y2="330" stroke="#333" stroke-width="2"/>
+    <text x="270" y="322" font-weight="bold" font-size="12">1</text>
+    <text x="322" y="322" font-weight="bold" font-size="12">0..N</text>
+
+    <polyline points="260,290 310,290 310,175 610,175" fill="none" stroke="#333" stroke-width="2"/>
+    <text x="270" y="282" font-weight="bold" font-size="12">1</text>
+    <text x="580" y="167" font-weight="bold" font-size="12">0..N</text>
+
+    <polyline points="570,300 725,300 725,225" fill="none" stroke="#333" stroke-width="2"/>
+    <text x="580" y="292" font-weight="bold" font-size="12">1</text>
+    <text x="733" y="242" font-weight="bold" font-size="12">0..N</text>
+  </svg>
+</body>
+</html>
